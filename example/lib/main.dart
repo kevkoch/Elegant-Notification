@@ -1,4 +1,5 @@
 import 'package:elegant_notification/elegant_notification.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -92,6 +93,7 @@ class ExampleApp extends StatelessWidget {
               InkWell(
                 onTap: () {
                   ElegantNotification.info(
+
                     title: 'Info',
                     description: 'This account will be updated once you exit',
                     showProgressIndicator: false,
@@ -119,13 +121,15 @@ class ExampleApp extends StatelessWidget {
               InkWell(
                 onTap: () {
                   ElegantNotification(
+
                     title: 'New version',
                     description:
                         'A new version is available to you please update.',
                     icon: Icon(
-                      Icons.access_alarm,
+                      CupertinoIcons.doc_on_clipboard,
                       color: Colors.orange,
                     ),
+                    showProgressIndicator: false,
                     progressIndicatorColor: Colors.orange,
                   ).show(context);
                 },

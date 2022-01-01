@@ -30,6 +30,8 @@ class ElegantNotification extends StatefulWidget {
     this.titleStyle = defaultTitleStyle,
     this.descriptionStyle = defaultDescriptionStyle,
     this.iconSize = defaultIconSize,
+    this.height = toastHeight,
+    this.width = toastWidth
   }) : super(key: key) {
     notificationType = NOTIFICATION_TYPE.custom;
   }
@@ -49,6 +51,8 @@ class ElegantNotification extends StatefulWidget {
     this.titleStyle = defaultTitleStyle,
     this.descriptionStyle = defaultDescriptionStyle,
     this.showProgressIndicator = defaultShowProgressIndicatorValue,
+    this.height = toastHeight,
+    this.width = toastWidth,
   }) : super(key: key) {
     notificationType = NOTIFICATION_TYPE.success;
     progressIndicatorColor = successColor;
@@ -70,6 +74,8 @@ class ElegantNotification extends StatefulWidget {
     this.titleStyle = defaultTitleStyle,
     this.descriptionStyle = defaultDescriptionStyle,
     this.showProgressIndicator = defaultShowProgressIndicatorValue,
+    this.height = toastHeight,
+    this.width = toastWidth,
   }) : super(key: key) {
     notificationType = NOTIFICATION_TYPE.error;
     progressIndicatorColor = errorColor;
@@ -91,6 +97,8 @@ class ElegantNotification extends StatefulWidget {
     this.titleStyle = defaultTitleStyle,
     this.descriptionStyle = defaultDescriptionStyle,
     this.showProgressIndicator = defaultShowProgressIndicatorValue,
+    this.height = toastHeight,
+    this.width = toastWidth,
   }) : super(key: key) {
     notificationType = NOTIFICATION_TYPE.info;
     progressIndicatorColor = inforColor;
@@ -114,6 +122,16 @@ class ElegantNotification extends StatefulWidget {
   ///by default it's `TextStyle(fontSize: 12)`
   ///
   final TextStyle descriptionStyle;
+
+  ///The container width
+  ///by default it's `TextStyle(fontSize: 12)`
+  ///
+  late double width;
+
+  ///The container height
+  ///by default it's `TextStyle(fontSize: 12)`
+  ///
+  late double height;
 
   ///The toast icon, required only if using the default constructor
   ///for other toast types (Success, Info, error) the icon is not changeable
@@ -306,8 +324,8 @@ class _ElegantNotificationState extends State<ElegantNotification>
         SlideTransition(
           position: offsetAnimation,
           child: Container(
-            width: MediaQuery.of(context).size.width * 0.7,
-            height: MediaQuery.of(context).size.height * 0.12,
+            width: widget.width,
+            height: widget.height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(widget.radius),
               color: widget.background,
