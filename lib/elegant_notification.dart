@@ -10,29 +10,29 @@ import 'package:elegant_notification/resources/constants.dart';
 
 // ignore: must_be_immutable
 class ElegantNotification extends StatefulWidget {
-  ElegantNotification({
-    Key? key,
-    this.title,
-    required this.description,
-    required this.icon,
-    this.shadowColor = defaultShadowColor,
-    this.background = defaultBackgroundColor,
-    this.radius = defaultRadiusValue,
-    this.enableShadow = defaultEnableShadowValue,
-    this.showProgressIndicator = defaultShowProgressIndicatorValue,
-    this.displayCloseButton = defaultCloseButtonDisplay,
-    this.progressIndicatorColor = defaultProgressColor,
-    this.toastDuration = notificationToastDuration,
-    this.onCloseButtonPressed,
-    this.onProgressFinished,
-    this.animation = defaultAnimationValue,
-    this.animationDuration = defaultAnimationDuration,
-    this.titleStyle = defaultTitleStyle,
-    this.descriptionStyle = defaultDescriptionStyle,
-    this.iconSize = defaultIconSize,
-    this.height = toastHeight,
-    this.width = toastWidth
-  }) : super(key: key) {
+  ElegantNotification(
+      {Key? key,
+      this.title,
+      required this.description,
+      required this.icon,
+      this.shadowColor = defaultShadowColor,
+      this.background = defaultBackgroundColor,
+      this.radius = defaultRadiusValue,
+      this.enableShadow = defaultEnableShadowValue,
+      this.showProgressIndicator = defaultShowProgressIndicatorValue,
+      this.displayCloseButton = defaultCloseButtonDisplay,
+      this.progressIndicatorColor = defaultProgressColor,
+      this.toastDuration = notificationToastDuration,
+      this.onCloseButtonPressed,
+      this.onProgressFinished,
+      this.animation = defaultAnimationValue,
+      this.animationDuration = defaultAnimationDuration,
+      this.titleStyle = defaultTitleStyle,
+      this.descriptionStyle = defaultDescriptionStyle,
+      this.iconSize = defaultIconSize,
+      this.height = toastHeight,
+      this.width = toastWidth})
+      : super(key: key) {
     notificationType = NOTIFICATION_TYPE.custom;
   }
 
@@ -328,7 +328,10 @@ class _ElegantNotificationState extends State<ElegantNotification>
             height: widget.height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(widget.radius),
-              color: widget.background,
+              gradient: const LinearGradient(
+                  begin: Alignment(1, 1),
+                  end: Alignment(0, 0),
+                  colors: <Color>[Color(0xff3d63ab), Color(0xff2292a6)]),
               boxShadow: widget.enableShadow
                   ? [
                       BoxShadow(
